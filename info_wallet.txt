@@ -1,0 +1,32 @@
+Wallet Owner: erd1zx357h73k4h7usvrqz8twgt7dp62ykagmvvpa79p7nfrrx3afg8q380r9m
+
+# Target de 10 EGLD, deadline 28/02/2025 23:59:59 -> 1740783599, 
+# Donatiu mínim de 0,5 EGLD, Donació màxima per donant de 3 EGLD,
+# Recaptació màxima de 15 EGLD.
+
+mxpy contract deploy --bytecode ./output/crowdfunding-plus.wasm \
+--proxy=https://devnet-gateway.multiversx.com \
+--recall-nonce \
+--arguments 10000000000000000000 1740783599 \
+500000000000000000 3000000000000000000 15000000000000000000 \
+--gas-limit 20000000 \
+--pem=wallet_cfplus.pem \
+--send
+
+CONTRACT ADRESS: erd1qqqqqqqqqqqqqpgqhr0fx8le4h9p95wzef2jncz5s2wqzmrufg8qf8mwfe
+
+
+
+Wallet User 1: erd1qhr8dqjcajrf00nc4k5l7grp5pqqke697qfwv0se5yxvtekpexhqm5v3n8
+Wallet User 2: erd1aperjeyd34wg0mnwcl4mjd60nrkudmhpk667jndhmjuqpqn3dlssfy0pn6
+Wallet User 3: erd1xtrx3g997uupgzjny456d7u2v2x767duelwtsw2hru688xwe486qxfsp5m
+Wallet User 4: erd19v52gje43uwl52qz7a2qp43r2wes93f2vxuj63pllztm8fegr02sm9z9xj
+Wallet User 5: erd1wkgmlfjkrdrjtat3g27xg3r54yka3tnr0ru6mcr7y3rr99crpl4qv7n559
+
+
+
+
+
+mxpy contract query erd1qqqqqqqqqqqqqpgqhr0fx8le4h9p95wzef2jncz5s2wqzmrufg8qf8mwfe \
+--proxy https://devnet-gateway.multiversx.com \
+--function getTarget

@@ -1,0 +1,1 @@
+/home/ratoli/curs_blockchain/definitius/crowdfunding_plus/crowdfunding-plus/target/wasm32-unknown-unknown/release/crowdfunding_plus_wasm.wasm: /home/ratoli/curs_blockchain/definitius/crowdfunding_plus/crowdfunding-plus/src/crowdfunding_plus.rs /home/ratoli/curs_blockchain/definitius/crowdfunding_plus/crowdfunding-plus/wasm/src/lib.rs

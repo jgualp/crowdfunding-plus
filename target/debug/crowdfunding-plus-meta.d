@@ -1,0 +1,1 @@
+/home/ratoli/curs_blockchain/definitius/crowdfunding_plus/crowdfunding-plus/target/debug/crowdfunding-plus-meta: /home/ratoli/curs_blockchain/definitius/crowdfunding_plus/crowdfunding-plus/meta/src/main.rs /home/ratoli/curs_blockchain/definitius/crowdfunding_plus/crowdfunding-plus/src/crowdfunding_plus.rs
