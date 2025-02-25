@@ -16,9 +16,6 @@
             "version": "0.56.1"
         }
     },
-    "docs": [
-        "An empty contract. To be used as a template when starting a new contract from scratch."
-    ],
     "name": "CrowdfundingPlus",
     "constructor": {
         "inputs": [
@@ -66,12 +63,36 @@
             "outputs": []
         },
         {
-            "name": "setMaxDepositPerWallet",
+            "name": "setMaxDepositPerDonor",
             "onlyOwner": true,
             "mutability": "mutable",
             "inputs": [
                 {
                     "name": "max_deposit",
+                    "type": "BigUint"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "setMaxTarget",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "max_trg",
+                    "type": "BigUint"
+                }
+            ],
+            "outputs": []
+        },
+        {
+            "name": "setMinFund",
+            "onlyOwner": true,
+            "mutability": "mutable",
+            "inputs": [
+                {
+                    "name": "min_fnd",
                     "type": "BigUint"
                 }
             ],
@@ -118,6 +139,21 @@
             ]
         },
         {
+            "name": "getDeposit",
+            "mutability": "readonly",
+            "inputs": [
+                {
+                    "name": "donor",
+                    "type": "Address"
+                }
+            ],
+            "outputs": [
+                {
+                    "type": "BigUint"
+                }
+            ]
+        },
+        {
             "name": "getMinFund",
             "mutability": "readonly",
             "inputs": [],
@@ -141,21 +177,6 @@
             "name": "getMaxTarget",
             "mutability": "readonly",
             "inputs": [],
-            "outputs": [
-                {
-                    "type": "BigUint"
-                }
-            ]
-        },
-        {
-            "name": "getDeposit",
-            "mutability": "readonly",
-            "inputs": [
-                {
-                    "name": "donor",
-                    "type": "Address"
-                }
-            ],
             "outputs": [
                 {
                     "type": "BigUint"

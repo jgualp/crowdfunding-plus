@@ -14,6 +14,8 @@ mxpy contract deploy --bytecode ./output/crowdfunding-plus.wasm \
 --send
 
 CONTRACT ADRESS: erd1qqqqqqqqqqqqqpgqhr0fx8le4h9p95wzef2jncz5s2wqzmrufg8qf8mwfe
+                 erd1qqqqqqqqqqqqqpgqhnp6rqgjf6wg4a950q36xexyvx5hkwwffg8qwh43c0
+                 erd1qqqqqqqqqqqqqpgq4puva2w39009j27qrjuluzjke5760yz7fg8q9rh6qp
 
 
 
@@ -30,3 +32,13 @@ Wallet User 5: erd1wkgmlfjkrdrjtat3g27xg3r54yka3tnr0ru6mcr7y3rr99crpl4qv7n559
 mxpy contract query erd1qqqqqqqqqqqqqpgqhr0fx8le4h9p95wzef2jncz5s2wqzmrufg8qf8mwfe \
 --proxy https://devnet-gateway.multiversx.com \
 --function getTarget
+
+
+mxpy contract call erd1qqqqqqqqqqqqqpgqhr0fx8le4h9p95wzef2jncz5s2wqzmrufg8qf8mwfe \
+--pem=wallet_user1.pem \
+--recall-nonce \
+--proxy=https://devnet-gateway.multiversx.com --chain D \
+--function fund \
+--value 250000000000000000 \
+--gas-limit 10000000 \
+--send

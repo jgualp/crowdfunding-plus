@@ -11,7 +11,6 @@ pub enum Status {
     Failed,
 }
 
-/// An empty contract. To be used as a template when starting a new contract from scratch.
 #[multiversx_sc::contract]
 pub trait CrowdfundingPlus {
     #[init]
@@ -40,7 +39,7 @@ pub trait CrowdfundingPlus {
     #[endpoint]
     #[payable("EGLD")]
     fn fund(&self) {
-        let payment = self.call_value().egld_value().clone_value();
+        let payment = self.call_value().egld().clone_value();
 
         // Validació perquè el donatiu tingui el mínim establert.
         require!(
@@ -50,9 +49,9 @@ pub trait CrowdfundingPlus {
 
         // Validació perquè el donatiu no faci superar el target màxim.
         require!(
-            self.get_current_funds() + payment.clone() <= self.max_target().get(),
+            self.get_current_funds() <= self.max_target().get(),
             "Fund would exceed the maximum amount."
-        );
+        );        
 
         let current_time = self.blockchain().get_block_timestamp();
         require!(
@@ -151,6 +150,12 @@ pub trait CrowdfundingPlus {
     #[storage_mapper("deadline")]
     fn deadline(&self) -> SingleValueMapper<u64>;
 
+    #[view(getDeposit)]
+    #[storage_mapper("deposit")]
+    fn deposit(&self, donor: &ManagedAddress) -> SingleValueMapper<BigUint>;
+
+    // Atributs d'storage que hem afegit per a la versió ampliada:
+    // el donatiu mínim, l'aportació màxima per donant i la recaptació total màxima.
     #[view(getMinFund)]
     #[storage_mapper("min_fund")]
     fn min_fund(&self) -> SingleValueMapper<BigUint>;
@@ -162,10 +167,5 @@ pub trait CrowdfundingPlus {
     #[view(getMaxTarget)]
     #[storage_mapper("max_target")]
     fn max_target(&self) -> SingleValueMapper<BigUint>;
-
-    #[view(getDeposit)]
-    #[storage_mapper("deposit")]
-    fn deposit(&self, donor: &ManagedAddress) -> SingleValueMapper<BigUint>;
-
 
 }

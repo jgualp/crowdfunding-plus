@@ -6,9 +6,9 @@
 
 // Init:                                 1
 // Upgrade:                              1
-// Endpoints:                           11
+// Endpoints:                           13
 // Async Callback (empty):               1
-// Total number of exported functions:  14
+// Total number of exported functions:  16
 
 #![no_std]
 
@@ -22,15 +22,17 @@ multiversx_sc_wasm_adapter::endpoints! {
         upgrade => upgrade
         fund => fund
         claim => claim
-        setMaxDepositPerWallet => set_max_deposit_per_donor
+        setMaxDepositPerDonor => set_max_deposit_per_donor
+        setMaxTarget => set_max_target
+        setMinFund => set_min_fund
         status => status
         getCurrentFunds => get_current_funds
         getTarget => target
         getDeadline => deadline
+        getDeposit => deposit
         getMinFund => min_fund
         getMaxDepositPerDonor => max_deposit_per_donor
         getMaxTarget => max_target
-        getDeposit => deposit
     )
 }
 
